@@ -1,0 +1,35 @@
+def countLetters(text):
+  letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','w','y','z','ç']
+  count = []
+  for idx, l in enumerate(letters):
+    if (text.lower().count(l) > 0):
+      count.append(f'{l}: {text.lower().count(l)}')
+  return count
+
+string = """Sorte de quem te conheceu
+Sorte de quem teve um pedaço do sorriso seu
+Sorte de quem teve por um momento seu coração
+Sorte de quem sentiu o toque da sua mão
+Azar de quem teve tudo isso por vários dias e perdeu
+de ter para sempre sua companhia"""
+phrases = []
+words = []
+letters = []
+print('Separação frases')
+for idx, i in enumerate(string.splitlines()):
+  print(f'[{idx + 1}] {i}')
+  phrases.append(i)
+  words.append([])
+
+print('Separação palavras')
+for idx, i in enumerate(phrases):
+  words[idx].append(i.split(' '))
+  print(f'[{idx + 1}] {words[idx]}')
+
+print('Separação letras')
+for idx, i in enumerate(phrases):
+  print(f'[{idx + 1}] {countLetters(i)}')
+
+print('Contagem todas letras')
+print(f'[Todas linhas] {countLetters(string)}')
+
